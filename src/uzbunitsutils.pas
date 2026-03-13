@@ -31,6 +31,7 @@ function zeNonDimensionToString(const Value:double;const f:TzeUnitsFormat):strin
 function zeAngleDegToString(const Value:double;const f:TzeUnitsFormat):string;
 function zeAngleToString(const Value:double;const f:TzeUnitsFormat):string;
 function zeStringToAngle(const Value:string;const f:TzeUnitsFormat):double;
+function zeTryStringToAngle(const s:string;out value:double;const f:TzeUnitsFormat):boolean;
 function CreateDefaultUnitsFormat:TzeUnitsFormat;
 
 implementation
@@ -280,6 +281,15 @@ end;
 function zeStringToAngle(const Value:string;const f:TzeUnitsFormat):double;
 begin
   Result:=degtorad(StrToFloat(Value));
+end;
+
+function zeTryStringToAngle(const s:string;out value:double;const f:TzeUnitsFormat):boolean;
+begin
+  result:=TryStrToFloat(s,value);
+  if result then
+    value:=DegToRad(value)
+  else
+    value:=0;
 end;
 
 function zeAngleDegToString(const Value:double;const f:TzeUnitsFormat):string;
