@@ -32,6 +32,7 @@ function zeAngleDegToString(const Value:double;const f:TzeUnitsFormat):string;
 function zeAngleToString(const Value:double;const f:TzeUnitsFormat):string;
 function zeStringToAngle(const Value:string;const f:TzeUnitsFormat):double;
 function zeTryStringToAngle(const s:string;out value:double;const f:TzeUnitsFormat):boolean;
+//TODO: нужно переместить в uzbUnits
 function CreateDefaultUnitsFormat:TzeUnitsFormat;
 
 implementation
